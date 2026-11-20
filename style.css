@@ -1,0 +1,26 @@
+:root{--bg:#e9edf1;--card:#f8fafc;--tx:#1b2430;--mut:#667385;--ac:#3447b8;--bd:#cfd6df;--fs:19px;--hl:#d92d20}
+:root[data-t=dark]{--bg:#0f1216;--card:#181c22;--tx:#dde3ea;--mut:#8a96a6;--ac:#8fa2ff;--bd:#2b323b;--hl:#ff6b6b}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{height:100vh;height:100dvh;display:flex;flex-direction:column;overflow:hidden;font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--tx);padding:env(safe-area-inset-top) 0 env(safe-area-inset-bottom)}
+header{flex:none;display:flex;gap:8px;flex-wrap:wrap;align-items:center;padding:10px 12px;background:var(--card);border-bottom:1px solid var(--bd);position:sticky;top:env(safe-area-inset-top,0);z-index:5}
+h1{font-size:17px;margin:0 auto 0 0}
+button{font:inherit;padding:7px 12px;border:1px solid var(--bd);border-radius:8px;background:var(--card);color:var(--tx);cursor:pointer}
+button.p{background:var(--ac);color:var(--bg);border-color:var(--ac);font-weight:600}
+:focus-visible{outline:2px solid var(--ac);outline-offset:2px}
+main{flex:1;min-height:0;display:grid;gap:12px;padding:12px;grid-template-columns:minmax(0,1fr);grid-template-rows:repeat(2,minmax(0,1fr))}
+@media(min-width:820px){main{grid-template-columns:1fr 1fr;grid-template-rows:minmax(0,1fr)}}
+.pane{background:var(--card);border:1px solid var(--bd);border-radius:10px;padding:12px;min-height:0;overflow:auto;position:relative;display:flex;flex-direction:column}
+textarea{flex:1;min-height:0;width:100%;border:0;resize:none;background:transparent;color:var(--tx);outline:0}
+#in,#raw{font:var(--fs)/1.8 "Noto Sans SC","PingFang SC","Microsoft YaHei",system-ui,sans-serif}
+#raw{white-space:pre-wrap}
+#raw span{cursor:pointer;border-radius:3px}
+#raw span:hover,#raw span:active{background:color-mix(in srgb,var(--ac) 22%,transparent)}
+#raw span.hl{color:var(--hl);font-weight:600;background:color-mix(in srgb,var(--hl) 14%,transparent)}
+#vi{font:var(--fs)/1.85 Charter,"Iowan Old Style",Georgia,"Times New Roman",serif}
+#st{color:var(--mut);font-size:14px;min-height:1.4em;margin-top:4px}
+dialog{border:1px solid var(--bd);border-radius:10px;background:var(--card);color:var(--tx);width:min(420px,92vw);padding:16px}
+dialog::backdrop{background:rgba(0,0,0,.45)}
+.zh{font-size:30px;margin:0}
+#w-py{font-size:20px;color:var(--ac);margin:2px 0 8px}
+.row{display:flex;gap:8px;justify-content:flex-end;margin-top:14px}
