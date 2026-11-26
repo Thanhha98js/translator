@@ -1,4 +1,4 @@
-const C = 'qt-v10';
+const C = 'qt-v14';
 const A = ['./', 'index.html', 'style.css', 'app.js', 'manifest.webmanifest', 'icon-192.png', 'icon-512.png'];
 
 self.addEventListener('install', e => e.waitUntil(

@@ -13,8 +13,10 @@ main{flex:1;min-height:0;display:grid;gap:12px;padding:12px;grid-template-column
 .pane{background:var(--card);border:1px solid var(--bd);border-radius:10px;padding:12px;min-height:0;overflow:auto;position:relative;display:flex;flex-direction:column}
 textarea{flex:1;min-height:0;width:100%;border:0;resize:none;background:transparent;color:var(--tx);outline:0}
 #in,#raw{font:var(--fs)/1.8 "Noto Sans SC","PingFang SC","Microsoft YaHei",system-ui,sans-serif}
-#raw{white-space:pre-wrap}
-#raw span{cursor:pointer;border-radius:3px}
+#raw{white-space:pre-wrap;flex:1;min-height:3em;outline:0;cursor:text}
+#raw .ln:empty{min-height:.8em}
+#raw .py{font-size:calc(var(--fs)*.68);line-height:1.45;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--mut);margin:2px 0 16px}
+#raw span{border-radius:3px}
 #raw span:hover,#raw span:active{background:color-mix(in srgb,var(--ac) 22%,transparent)}
 #raw span.hl{color:var(--hl);font-weight:600;background:color-mix(in srgb,var(--hl) 14%,transparent)}
 #vi{font:var(--fs)/1.85 Charter,"Iowan Old Style",Georgia,"Times New Roman",serif}
@@ -24,3 +26,9 @@ dialog::backdrop{background:rgba(0,0,0,.45)}
 .zh{font-size:30px;margin:0}
 #w-py{font-size:20px;color:var(--ac);margin:2px 0 8px}
 .row{display:flex;gap:8px;justify-content:flex-end;margin-top:14px}
+
+details{flex:none;margin-bottom:8px;font-size:14px}
+summary{cursor:pointer;font-weight:600}
+details label{display:block;color:var(--mut);margin:8px 0 2px}
+#gk,#gmodel,#gp{width:100%;border:1px solid var(--bd);border-radius:8px;padding:6px 8px;background:var(--bg);color:var(--tx);font:inherit;font-size:14px}
+#gp{flex:none;height:auto;resize:vertical}

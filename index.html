@@ -1,46 +1,57 @@
 <!doctype html>
 <html lang="vi">
-
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-    <meta name="theme-color" content="#3447b8">
-    <link rel="manifest" href="manifest.webmanifest">
-    <link rel="icon" href="icon-192.png">
-    <link rel="apple-touch-icon" href="icon-192.png">
-    <title>QT Web – Dịch Trung Việt</title>
-    <script src="https://cdn.jsdelivr.net/npm/pinyin-pro@3.26.0/dist/index.js" crossorigin="anonymous" defer></script>
-    <link rel="stylesheet" href="style.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#3447b8">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
+<title>QT Web – Dịch Trung Việt</title>
+<script src="https://cdn.jsdelivr.net/npm/pinyin-pro@3.26.0/dist/index.js" crossorigin="anonymous" defer></script>
+<link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-    <header>
-        <h1>QT Web</h1>
-        <button class="p" id="go">Dịch</button>
-        <button id="ed">Sửa gốc</button>
-        <button id="fm" aria-label="Giảm cỡ chữ">A−</button>
-        <button id="fp" aria-label="Tăng cỡ chữ">A+</button>
-        <button id="th">Sáng/Tối</button>
-    </header>
-    <main>
-        <section class="pane">
-            <textarea id="in" placeholder="Dán văn bản tiếng Trung vào đây rồi bấm Dịch" spellcheck="false"></textarea>
-            <div id="raw" hidden></div>
-        </section>
-        <section class="pane">
-            <textarea id="vi" placeholder="Bản dịch hiện ở đây, bạn có thể sửa trực tiếp" spellcheck="false"></textarea>
-            <div id="st" aria-live="polite"></div>
-        </section>
-    </main>
+<header>
+<h1>QT Web</h1>
+<button class="p" id="go">Dịch</button>
+<button id="ed" hidden>Xem gốc</button>
+<button id="nw" hidden>Dán mới</button>
+<button id="cp">Copy dịch</button>
+<button id="fm" aria-label="Giảm cỡ chữ">A−</button>
+<button id="fp" aria-label="Tăng cỡ chữ">A+</button>
+<button id="th">Sáng/Tối</button>
+</header>
+<main>
+<section class="pane">
+<textarea id="in" placeholder="Dán văn bản tiếng Trung vào đây rồi bấm Dịch" spellcheck="false"></textarea>
+<div id="raw" hidden></div>
+</section>
+<section class="pane">
+<details id="gm">
+<summary>Dịch bằng Gemini (miễn phí)</summary>
+<label for="gk">API key (lấy ở aistudio.google.com/apikey)</label>
+<input type="password" id="gk" autocomplete="off" spellcheck="false">
+<label for="gmodel">Model</label>
+<input id="gmodel" list="gml" spellcheck="false">
+<datalist id="gml"><option value="gemini-flash-latest"><option value="gemini-3.5-flash"><option value="gemini-3.5-flash-lite"><option value="gemini-2.5-flash"><option value="gemini-2.5-flash-lite"></datalist>
+<label for="gp">Prompt (văn phong, xưng hô, tên nhân vật...)</label>
+<textarea id="gp" rows="5" spellcheck="false"></textarea>
+<div class="row"><button class="p" id="gdo">Dịch bằng Gemini</button></div>
+<small>Key chỉ lưu trong trình duyệt của bạn. Văn bản được gửi lên Google khi dịch.</small>
+</details>
+<textarea id="vi" placeholder="Bản dịch hiện ở đây, bạn có thể sửa trực tiếp" spellcheck="false"></textarea>
+<div id="st" aria-live="polite"></div>
+</section>
+</main>
 
-    <dialog id="dw" closedby="any">
-        <p class="zh" id="w-s"></p>
-        <div id="w-py"></div>
-        <div id="w-m"></div>
-        <div class="row"><button id="w-say">Nghe</button><button id="w-x">Đóng</button></div>
-    </dialog>
+<dialog id="dw" closedby="any">
+<p class="zh" id="w-s"></p>
+<div id="w-py"></div>
+<div id="w-m"></div>
+<div class="row"><button id="w-say">Nghe</button><button id="w-cp">Copy</button><button id="w-x">Đóng</button></div>
+</dialog>
 
-    <script src="app.js" defer></script>
+<script src="app.js" defer></script>
 </body>
-
 </html>
